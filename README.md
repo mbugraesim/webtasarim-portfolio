@@ -1,24 +1,20 @@
-# Xreybes Portfolio
+# 🌐 Xreybes Portfolio
 
-Modern ve neon temalı kişisel portfolio sitesi.
+🚀 Canlı siteyi görüntüle:
 
-## İçerik
-- Hero / Yetenekler / Projeler / İletişim
-- Proje arama + filtreleme (JS)
-- Particles arka plan + responsive tasarım
+👉 https://mbugraesim.github.io/webtasarim-portfolio/
 
-## Kurulum
-Bu proje saf HTML/CSS/JS’dir.
+---
 
-- `index.html` dosyasını tarayıcıda aç
-veya
-- VS Code → Live Server ile çalıştır
+## Proje Hakkında
+Bu proje kişisel portföy web sitemdir.  
+Modern arayüz, animasyonlar ve responsive tasarım içerir.
 
-## Canlı Yayın (GitHub Pages)
-Repo → Settings → Pages → Branch: `main` / Folder: `/root` → Save  
-Sonra link oluşur.
+## Kullanılan Teknolojiler
+- HTML5
+- CSS3
+- JavaScript
+- Particles.js
 
-## Bağlantılar
-- GitHub: https://github.com/mbugraesim
-- link https://mbugraesim.github.io/webtasarim-portfolio/
-
+## Amaç
+Projelerimi, yeteneklerimi ve geliştirdiğim uygulamaları sergilemek için hazırlanmıştır.
