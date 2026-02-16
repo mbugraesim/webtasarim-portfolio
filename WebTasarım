@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xreybes | Portföyler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#05030f;
+      color:#fff;
+      padding:40px 18px;
+      overflow:hidden;
+    }
+    .glow{
+      position:fixed; inset:-30%;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(187,99,255,.22), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(76,242,255,.16), transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(187,99,255,.12), transparent 50%);
+      filter: blur(14px);
+      z-index:-1;
+    }
+    .wrap{
+      width:min(980px,100%);
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:22px;
+      padding:34px;
+      box-shadow:0 0 35px rgba(150,70,255,0.25);
+      backdrop-filter: blur(16px);
+    }
+    h1{
+      font-size:40px;
+      font-weight:800;
+      line-height:1.15;
+      background:linear-gradient(90deg,#d36bff,#4ce8ff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+    p{margin-top:12px;color:#cfcfd6;line-height:1.8}
+    .grid{
+      margin-top:22px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:14px;
+    }
+    a.card{
+      text-decoration:none;
+      color:#fff;
+      padding:18px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      transition:.2s;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    a.card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(200,104,255,0.65);
+      box-shadow:0 0 22px rgba(180,80,255,0.22);
+    }
+    .tag{
+      width:fit-content;
+      font-size:12px;
+      color:#d7d7df;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14);
+      background:rgba(255,255,255,0.04);
+    }
+    .title{font-weight:800;font-size:16px}
+    .desc{color:#cfcfd6;font-size:13.5px;line-height:1.7}
+    .row{
+      margin-top:18px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      align-items:center;
+      color:#bdbdc8;
+      font-size:13px;
+    }
+    .row a{
+      color:#fff;
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:12px;
+      background:linear-gradient(135deg,#a85bff,#5bdbff);
+      font-weight:800;
+    }
+    .row a:hover{transform:translateY(-3px)}
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+
+  <main class="wrap">
+    <h1>Portföylerim</h1>
+    <p>
+      Buradan 3 farklı portföy tasarımımı ayrı ayrı inceleyebilirsin.
+      Her biri farklı tema/deney konsepti.
+    </p>
+
+    <section class="grid">
+      <a class="card" href="./p1/">
+        <span class="tag">Portföy 1 • Yeni</span>
+        <div class="title">Ultra Portfolio v5</div>
+        <div class="desc">Modern neon tema, projeler + filtre/arama, premium görünüm.</div>
+      </a>
+
+      <a class="card" href="./p2/">
+        <span class="tag">Portföy 2</span>
+        <div class="title">Alternatif Tasarım</div>
+        <div class="desc">Farklı layout ve içerik düzeni. Deneysel UI.</div>
+      </a>
+
+      <a class="card" href="./p3/">
+        <span class="tag">Portföy 3</span>
+        <div class="title">Klasik / Minimal</div>
+        <div class="desc">Daha sade, hızlı ve okunabilir versiyon.</div>
+      </a>
+    </section>
+
+    <div class="row">
+      <span>© 2026 Xreybes</span>
+      <a href="https://github.com/mbugraesim" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </main>
+</body>
+</html>
