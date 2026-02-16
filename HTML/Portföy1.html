@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Xreybes | Ultra Portfolio v5</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+    * {
+        margin: 0; padding: 0; box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: #05030f;
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    /* PARTICLE BACKGROUND */
+    #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        top: 0;
+        left: 0;
+    }
+
+    /* NAVBAR */
+    nav {
+        width: 100%;
+        padding: 22px 10%;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 9999;
+        background: rgba(255,255,255,0.03);
+        backdrop-filter: blur(25px);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav .logo {
+        font-size: 32px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        background: linear-gradient(90deg,#c47bff,#4bd9ff);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 35px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #ddd;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    nav ul li a:hover {
+        color: #b46bff;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 180px 10% 140px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .hero-text {
+        max-width: 550px;
+    }
+
+    .hero-title {
+        font-size: 65px;
+        font-weight: 800;
+        line-height: 1.2;
+    }
+
+    .hero-title span {
+        background: linear-gradient(90deg,#bb63ff,#4cf2ff);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .hero-sub {
+        margin-top: 20px;
+        color: #ccc;
+        font-size: 18px;
+        line-height: 1.7;
+    }
+
+    /* HERO BUTTONS */
+    .hero-buttons {
+        margin-top: 35px;
+        display: flex;
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 14px 28px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: .3s;
+        font-size: 16px;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg,#a85bff,#5bdbff);
+        border: none;
+    }
+    .btn-primary:hover { transform: translateY(-5px); }
+
+    .btn-secondary {
+        background: transparent;
+        border: 2px solid #8b44ff;
+        color: #dcdcdc;
+    }
+    .btn-secondary:hover { transform: translateY(-5px); background: rgba(255,255,255,0.05); }
+
+    /* HERO IMAGE WITH NEON FRAME */
+    .hero-img-box {
+        position: relative;
+    }
+
+    .hero-img-box::before {
+        content: "";
+        width: 380px; height: 380px;
+        position: absolute;
+        top: -30px; left: -30px;
+        border-radius: 50%;
+        background: radial-gradient(circle,#a65bff,#35004a);
+        filter: blur(50px);
+        animation: heroGlow 6s infinite alternate;
+    }
+
+    @keyframes heroGlow {
+        0% { transform: scale(1); opacity:.7; }
+        100% { transform: scale(1.3); opacity:1; }
+    }
+
+    .hero-img {
+        width: 380px;
+        border-radius: 22px;
+        position: relative;
+        z-index: 5;
+        box-shadow: 0 0 50px rgba(150, 75, 255, 0.6);
+        animation: float 4s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+        100% { transform: translateY(0); }
+    }
+
+    /* SECTION TITLES */
+    .section-title {
+        text-align: center;
+        font-size: 42px;
+        font-weight: 800;
+        margin-bottom: 60px;
+        background: linear-gradient(90deg,#d36bff,#4ce8ff);
+        -webkit-background-clip:text;
+        color: transparent;
+    }
+
+    /* SKILLS (3D CARDS) */
+    #skills {
+        padding: 100px 10%;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+        gap: 30px;
+    }
+
+    .skill-card {
+        padding: 25px;
+        background: rgba(255,255,255,0.06);
+        border-radius: 15px;
+        border: 1px solid rgba(255,255,255,0.1);
+        text-align:center;
+        font-size: 20px;
+        font-weight: 600;
+        transition: .4s;
+        transform-style: preserve-3d;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-10px) rotateX(8deg) rotateY(8deg);
+        border-color: #b36aff;
+        box-shadow: 0 0 25px rgba(170,85,255,0.4);
+    }
+
+    /* PROJECTS (NEON GLOW PANELS) */
+    #projects {
+        padding: 100px 10%;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+        gap: 30px;
+    }
+
+    .project-card {
+        background: rgba(255,255,255,0.06);
+        border-radius: 18px;
+        padding: 20px;
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: .3s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+        border-color: #c868ff;
+        box-shadow: 0 0 25px rgba(180,80,255,0.4);
+    }
+
+    .project-card img {
+        width:100%;
+        border-radius: 12px;
+        margin-bottom: 12px;
+    }
+
+    /* CONTACT — EPIC GLASS PANEL */
+    #contact {
+        padding: 130px 10%;
+        display:flex;
+        justify-content:center;
+    }
+
+    .contact-panel {
+        width: 60%;
+        padding: 40px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 0 35px rgba(150,70,255,0.3);
+        text-align:center;
+    }
+
+    .contact-panel p {
+        margin: 15px 0;
+        font-size: 18px;
+        color: #ddd;
+    }
+
+    footer {
+        text-align:center;
+        padding: 35px;
+        color:#aaa;
+        margin-top:60px;
+        border-top:1px solid rgba(255,255,255,0.1);
+    }
+</style>
+
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">XREYBES</div>
+    <ul>
+        <li><a href="#home">Anasayfa</a></li>
+        <li><a href="#skills">Yetenekler</a></li>
+        <li><a href="#projects">Projeler</a></li>
+        <li><a href="#contact">İletişim</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="hero-text">
+        <h1 class="hero-title">Akıllı, Modern ve <span>Yenilikçi</span> Projeler Oluşturuyorum</h1>
+        <p class="hero-sub">
+            Mobil uygulamalar, yapay zeka tabanlı sistemler ve modern web arayüzleri geliştiriyorum.  
+            Mimari, performans ve tasarım benim için önceliktir.
+        </p>
+
+        <div class="hero-buttons">
+            <button class="btn btn-primary">Projelerime Bak</button>
+            <button class="btn btn-secondary">İletişime Geç</button>
+        </div>
+    </div>
+
+    <div class="hero-img-box">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" class="hero-img">
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2 class="section-title">Yetenekler</h2>
+    <div class="skills-grid">
+        <div class="skill-card">Kotlin</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">SQL Server</div>
+        <div class="skill-card">Firebase</div>
+        <div class="skill-card">Node.js</div>
+        <div class="skill-card">React</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 class="section-title">Projeler</h2>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600">
+            <h3>Akıllı Mahalle Yardım Ağı</h3>
+            <p>Konum bazlı yardım eşleştirme sistemi. Yapay zeka optimizasyonlu eşleştirme.</p>
+        </div>
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600">
+            <h3>LexiKart</h3>
+            <p>İngilizce kelime uygulaması. Öğrenme algoritması + Firestore entegrasyonu.</p>
+        </div>
+
+        <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=600">
+            <h3>Yurt Yönetim Sistemi</h3>
+            <p>SQL Server tabanlı geniş kapsamlı yönetim otomasyonu.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="contact-panel">
+        <h2 class="section-title">İletişim</h2>
+        <p>Email: <b>bugraesim@gmail.com</b></p>
+        <p>GitHub: github.com/mBugraEsim</p>
+        <p>LinkedIn: linkedin.com/in/mbugraesim</p>
+    </div>
+</section>
+
+<footer>
+    © 2025 Xreybes — Ultra Premium Portfolio
+</footer>
+
+<!-- PARTICLES JS CDN -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+particlesJS("particles-js", {
+    "particles":{
+        "number":{"value":85},
+        "size":{"value":3},
+        "move":{"speed":2},
+        "line_linked":{"enable":true,"distance":150,"color":"#983bff"},
+        "color":{"value":"#bb68ff"}
+    }
+});
+</script>
+
+</body>
+</html>
