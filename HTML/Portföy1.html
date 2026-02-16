@@ -1,381 +1,831 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Xreybes | Ultra Portfolio v5</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xreybes | Portfolio</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
 
-<style>
-    * {
-        margin: 0; padding: 0; box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
+  <style>
+    :root{
+      --bg:#05030f;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.12);
+      --text:#fff;
+      --muted:#cfcfd6;
+      --muted2:#b9b9c2;
+      --grad: linear-gradient(90deg,#d36bff,#4ce8ff);
+      --grad2: linear-gradient(135deg,#a85bff,#5bdbff);
+      --accent:#bb63ff;
+      --accent2:#4cf2ff;
+      --shadow: 0 0 35px rgba(150,70,255,0.25);
+      --radius: 18px;
     }
 
-    body {
-        background: #05030f;
-        color: #fff;
-        overflow-x: hidden;
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+    html{ scroll-behavior:smooth; }
+    body{
+      background: var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
     }
 
-    /* PARTICLE BACKGROUND */
-    #particles-js {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        top: 0;
-        left: 0;
+    /* PARTICLES */
+    #particles-js{
+      position:fixed; inset:0;
+      z-index:-2;
     }
 
-    /* NAVBAR */
-    nav {
-        width: 100%;
-        padding: 22px 10%;
-        position: fixed;
-        top: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 9999;
-        background: rgba(255,255,255,0.03);
-        backdrop-filter: blur(25px);
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+    /* Soft gradient overlays */
+    .bg-glow{
+      position:fixed; inset:-30%;
+      z-index:-3;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(187,99,255,.18), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(76,242,255,.12), transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(187,99,255,.10), transparent 50%);
+      filter: blur(10px);
     }
 
-    nav .logo {
-        font-size: 32px;
-        font-weight: 800;
-        letter-spacing: 2px;
-        background: linear-gradient(90deg,#c47bff,#4bd9ff);
-        -webkit-background-clip: text;
-        color: transparent;
+    /* NAV */
+    nav{
+      width:100%;
+      padding: 18px 10%;
+      position:fixed;
+      top:0; left:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:9999;
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(25px);
+      border-bottom:1px solid rgba(255,255,255,0.1);
     }
 
-    nav ul {
-        list-style: none;
-        display: flex;
-        gap: 35px;
+    .logo{
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:2px;
+      background: var(--grad);
+      -webkit-background-clip:text;
+      color:transparent;
+      user-select:none;
     }
 
-    nav ul li a {
-        text-decoration: none;
-        color: #ddd;
-        font-weight: 600;
-        transition: .3s;
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap: 26px;
+      align-items:center;
     }
+    nav a{
+      text-decoration:none;
+      color:#ddd;
+      font-weight:600;
+      transition:.25s;
+      font-size:14.5px;
+    }
+    nav a:hover{ color: var(--accent); }
 
-    nav ul li a:hover {
-        color: #b46bff;
+    .nav-cta{
+      padding:10px 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.04);
     }
+    .nav-cta:hover{ background: rgba(255,255,255,0.08); }
+
+    /* LAYOUT */
+    .container{ padding: 0 10%; }
 
     /* HERO */
-    .hero {
-        padding: 180px 10% 140px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 60px;
+    .hero{
+      padding: 160px 0 110px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items:center;
     }
 
-    .hero-text {
-        max-width: 550px;
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+      width: fit-content;
     }
 
-    .hero-title {
-        font-size: 65px;
-        font-weight: 800;
-        line-height: 1.2;
+    .dot{
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent2);
+      box-shadow: 0 0 15px rgba(76,242,255,.6);
     }
 
-    .hero-title span {
-        background: linear-gradient(90deg,#bb63ff,#4cf2ff);
-        -webkit-background-clip: text;
-        color: transparent;
+    .hero-title{
+      font-size: 58px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+    .hero-title span{
+      background: var(--grad);
+      -webkit-background-clip:text;
+      color:transparent;
     }
 
-    .hero-sub {
-        margin-top: 20px;
-        color: #ccc;
-        font-size: 18px;
-        line-height: 1.7;
+    .hero-sub{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 16.5px;
+      line-height: 1.8;
+      max-width: 640px;
     }
 
-    /* HERO BUTTONS */
-    .hero-buttons {
-        margin-top: 35px;
-        display: flex;
-        gap: 15px;
+    .hero-meta{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+    }
+    .pill{
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.10);
+      color: #ddd;
+      font-size: 13px;
     }
 
-    .btn {
-        padding: 14px 28px;
-        border-radius: 12px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: .3s;
-        font-size: 16px;
+    .hero-buttons{
+      margin-top: 28px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      padding: 13px 22px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-weight: 700;
+      transition: .25s;
+      font-size: 15px;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      text-decoration:none;
+      color:#fff;
+    }
+    .btn-primary{
+      background: var(--grad2);
+      border:none;
+      box-shadow: 0 12px 30px rgba(168,91,255,0.22);
+    }
+    .btn-primary:hover{ transform: translateY(-4px); }
+    .btn-secondary{
+      background: transparent;
+      border: 2px solid rgba(139,68,255,0.9);
+      color: #e7e7ef;
+    }
+    .btn-secondary:hover{ transform: translateY(-4px); background: rgba(255,255,255,0.05); }
+
+    .btn-ghost{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      color:#e7e7ef;
+    }
+    .btn-ghost:hover{ transform: translateY(-4px); background: rgba(255,255,255,0.10); }
+
+    /* HERO CARD */
+    .hero-card{
+      position:relative;
+      border-radius: 22px;
+      padding: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+      overflow:hidden;
     }
 
-    .btn-primary {
-        background: linear-gradient(135deg,#a85bff,#5bdbff);
-        border: none;
-    }
-    .btn-primary:hover { transform: translateY(-5px); }
-
-    .btn-secondary {
-        background: transparent;
-        border: 2px solid #8b44ff;
-        color: #dcdcdc;
-    }
-    .btn-secondary:hover { transform: translateY(-5px); background: rgba(255,255,255,0.05); }
-
-    /* HERO IMAGE WITH NEON FRAME */
-    .hero-img-box {
-        position: relative;
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:-60px;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(187,99,255,.25), transparent 40%),
+        radial-gradient(circle at 75% 55%, rgba(76,242,255,.18), transparent 45%);
+      filter: blur(18px);
+      z-index:0;
     }
 
-    .hero-img-box::before {
-        content: "";
-        width: 380px; height: 380px;
-        position: absolute;
-        top: -30px; left: -30px;
-        border-radius: 50%;
-        background: radial-gradient(circle,#a65bff,#35004a);
-        filter: blur(50px);
-        animation: heroGlow 6s infinite alternate;
+    .hero-img{
+      width:100%;
+      border-radius: 18px;
+      position:relative;
+      z-index:2;
+      box-shadow: 0 0 45px rgba(150,75,255,0.35);
+      transform: translateZ(0);
     }
 
-    @keyframes heroGlow {
-        0% { transform: scale(1); opacity:.7; }
-        100% { transform: scale(1.3); opacity:1; }
+    .hero-mini{
+      margin-top: 14px;
+      position:relative;
+      z-index:2;
+      display:grid;
+      gap: 10px;
+    }
+    .mini-row{
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      color: var(--muted2);
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .mini-row b{ color:#fff; font-weight:700; }
+
+    /* SECTION */
+    section{ scroll-margin-top: 95px; }
+    .section{
+      padding: 90px 0;
+    }
+    .section-title{
+      text-align:center;
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: var(--grad);
+      -webkit-background-clip:text;
+      color: transparent;
+    }
+    .section-desc{
+      text-align:center;
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto 55px;
+      font-size: 15.5px;
+      line-height: 1.75;
     }
 
-    .hero-img {
-        width: 380px;
-        border-radius: 22px;
-        position: relative;
-        z-index: 5;
-        box-shadow: 0 0 50px rgba(150, 75, 255, 0.6);
-        animation: float 4s infinite ease-in-out;
+    /* SKILLS */
+    .skills-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .skill-card{
+      padding: 18px;
+      border-radius: 16px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      transition: .25s;
+    }
+    .skill-card:hover{
+      transform: translateY(-8px);
+      border-color: rgba(187,99,255,0.55);
+      box-shadow: 0 0 22px rgba(170,85,255,0.22);
+    }
+    .skill-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom: 10px;
+    }
+    .skill-name{
+      font-weight:800;
+      font-size: 16px;
+    }
+    .skill-tag{
+      font-size: 12px;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+    }
+    .skill-list{
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.65;
     }
 
-    @keyframes float {
-        0% { transform: translateY(0); }
-        50% { transform: translateY(-15px); }
-        100% { transform: translateY(0); }
+    /* PROJECTS */
+    .projects-toolbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 12px;
+      flex-wrap:wrap;
+      margin-bottom: 18px;
+    }
+    .search{
+      flex: 1;
+      min-width: 240px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      outline:none;
+    }
+    .search::placeholder{ color: rgba(255,255,255,0.55); }
+
+    .filters{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .chip{
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      color: #e7e7ef;
+      font-weight: 700;
+      font-size: 12.5px;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .chip.active, .chip:hover{
+      border-color: rgba(187,99,255,0.60);
+      background: rgba(187,99,255,0.12);
     }
 
-    /* SECTION TITLES */
-    .section-title {
-        text-align: center;
-        font-size: 42px;
-        font-weight: 800;
-        margin-bottom: 60px;
-        background: linear-gradient(90deg,#d36bff,#4ce8ff);
-        -webkit-background-clip:text;
-        color: transparent;
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 18px;
     }
 
-    /* SKILLS (3D CARDS) */
-    #skills {
-        padding: 100px 10%;
+    .project-card{
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 16px;
+      border: 1px solid var(--border);
+      transition: .25s;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      overflow:hidden;
+      position:relative;
+    }
+    .project-card:hover{
+      transform: translateY(-8px);
+      border-color: rgba(200,104,255,0.60);
+      box-shadow: 0 0 22px rgba(180,80,255,0.22);
+    }
+    .project-thumb{
+      width:100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .project-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap: 10px;
+    }
+    .project-title{
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+    .project-badges{
+      display:flex;
+      gap: 8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .badge{
+      font-size: 11.5px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      white-space:nowrap;
+    }
+    .project-desc{
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.7;
+      min-height: 66px;
+    }
+    .project-actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 2px;
+    }
+    .a-link{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-decoration:none;
+      color:#fff;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      font-weight: 700;
+      font-size: 13px;
+      transition:.2s;
+    }
+    .a-link:hover{ transform: translateY(-3px); background: rgba(255,255,255,0.10); }
+
+    /* CONTACT */
+    .contact-wrap{
+      display:flex;
+      justify-content:center;
+    }
+    .contact-panel{
+      width: min(820px, 100%);
+      padding: 34px;
+      border-radius: 20px;
+      background: var(--panel2);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .contact-item{
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .contact-item b{ color:#fff; }
+    .contact-item a{ color:#e7e7ef; text-decoration:none; }
+    .contact-item a:hover{ text-decoration:underline; }
+
+    footer{
+      text-align:center;
+      padding: 34px 10%;
+      color:#aaa;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-        gap: 30px;
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      nav{ padding: 16px 6%; }
+      .container{ padding: 0 6%; }
+      .hero{ grid-template-columns: 1fr; padding-top: 140px; }
+      .hero-title{ font-size: 46px; }
+      nav ul{ gap: 16px; }
     }
-
-    .skill-card {
-        padding: 25px;
-        background: rgba(255,255,255,0.06);
-        border-radius: 15px;
-        border: 1px solid rgba(255,255,255,0.1);
-        text-align:center;
-        font-size: 20px;
-        font-weight: 600;
-        transition: .4s;
-        transform-style: preserve-3d;
+    @media (max-width: 560px){
+      .hero-title{ font-size: 38px; }
+      .section-title{ font-size: 34px; }
+      nav ul{ display:none; }
     }
-
-    .skill-card:hover {
-        transform: translateY(-10px) rotateX(8deg) rotateY(8deg);
-        border-color: #b36aff;
-        box-shadow: 0 0 25px rgba(170,85,255,0.4);
-    }
-
-    /* PROJECTS (NEON GLOW PANELS) */
-    #projects {
-        padding: 100px 10%;
-    }
-
-    .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-        gap: 30px;
-    }
-
-    .project-card {
-        background: rgba(255,255,255,0.06);
-        border-radius: 18px;
-        padding: 20px;
-        border: 1px solid rgba(255,255,255,0.1);
-        transition: .3s;
-    }
-
-    .project-card:hover {
-        transform: translateY(-10px);
-        border-color: #c868ff;
-        box-shadow: 0 0 25px rgba(180,80,255,0.4);
-    }
-
-    .project-card img {
-        width:100%;
-        border-radius: 12px;
-        margin-bottom: 12px;
-    }
-
-    /* CONTACT — EPIC GLASS PANEL */
-    #contact {
-        padding: 130px 10%;
-        display:flex;
-        justify-content:center;
-    }
-
-    .contact-panel {
-        width: 60%;
-        padding: 40px;
-        border-radius: 20px;
-        background: rgba(255,255,255,0.08);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255,255,255,0.1);
-        box-shadow: 0 0 35px rgba(150,70,255,0.3);
-        text-align:center;
-    }
-
-    .contact-panel p {
-        margin: 15px 0;
-        font-size: 18px;
-        color: #ddd;
-    }
-
-    footer {
-        text-align:center;
-        padding: 35px;
-        color:#aaa;
-        margin-top:60px;
-        border-top:1px solid rgba(255,255,255,0.1);
-    }
-</style>
-
+  </style>
 </head>
+
 <body>
+  <div class="bg-glow"></div>
+  <div id="particles-js"></div>
 
-<div id="particles-js"></div>
-
-<!-- NAV -->
-<nav>
+  <!-- NAV -->
+  <nav>
     <div class="logo">XREYBES</div>
     <ul>
-        <li><a href="#home">Anasayfa</a></li>
-        <li><a href="#skills">Yetenekler</a></li>
-        <li><a href="#projects">Projeler</a></li>
-        <li><a href="#contact">İletişim</a></li>
+      <li><a href="#home">Anasayfa</a></li>
+      <li><a href="#skills">Yetenekler</a></li>
+      <li><a href="#projects">Projeler</a></li>
+      <li><a href="#contact">İletişim</a></li>
+      <li><a class="nav-cta" href="#projects">Projelerime Bak</a></li>
     </ul>
-</nav>
+  </nav>
 
-<!-- HERO -->
-<section id="home" class="hero">
-    <div class="hero-text">
-        <h1 class="hero-title">Akıllı, Modern ve <span>Yenilikçi</span> Projeler Oluşturuyorum</h1>
+  <div class="container">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="dot"></span> Yazılım Mühendisliği Öğrencisi • Mobile & Full-Stack</div>
+
+        <h1 class="hero-title">
+          Akıllı, Modern ve <span>Yenilikçi</span> Ürünler Geliştiriyorum
+        </h1>
+
         <p class="hero-sub">
-            Mobil uygulamalar, yapay zeka tabanlı sistemler ve modern web arayüzleri geliştiriyorum.  
-            Mimari, performans ve tasarım benim için önceliktir.
+          React Native/Expo ile mobil uygulamalar, SQL Server ile veri tabanı tasarımı ve Firebase ile gerçek zamanlı sistemler geliştiriyorum.
+          Amacım: üretilebilir, ölçeklenebilir ve temiz mimarili projeler.
         </p>
 
+        <div class="hero-meta">
+          <span class="pill">React Native • Expo</span>
+          <span class="pill">Firebase • Firestore</span>
+          <span class="pill">SQL Server</span>
+          <span class="pill">Node.js • REST API</span>
+          <span class="pill">Cybersecurity Interest</span>
+        </div>
+
         <div class="hero-buttons">
-            <button class="btn btn-primary">Projelerime Bak</button>
-            <button class="btn btn-secondary">İletişime Geç</button>
+          <a class="btn btn-primary" href="#projects">🚀 Projeler</a>
+          <a class="btn btn-secondary" href="#contact">✉️ İletişim</a>
+          <a class="btn btn-ghost" href="https://github.com/mbugraesim" target="_blank" rel="noopener">💻 GitHub</a>
         </div>
-    </div>
+      </div>
 
-    <div class="hero-img-box">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" class="hero-img">
-    </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-    <h2 class="section-title">Yetenekler</h2>
-    <div class="skills-grid">
-        <div class="skill-card">Kotlin</div>
-        <div class="skill-card">JavaScript</div>
-        <div class="skill-card">SQL Server</div>
-        <div class="skill-card">Firebase</div>
-        <div class="skill-card">Node.js</div>
-        <div class="skill-card">React</div>
-    </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-    <h2 class="section-title">Projeler</h2>
-
-    <div class="projects-grid">
-
-        <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600">
-            <h3>Akıllı Mahalle Yardım Ağı</h3>
-            <p>Konum bazlı yardım eşleştirme sistemi. Yapay zeka optimizasyonlu eşleştirme.</p>
+      <div class="hero-card">
+        <img
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200"
+          class="hero-img"
+          alt="Developer desk"
+        />
+        <div class="hero-mini">
+          <div class="mini-row"><span>Odak</span><b>Mobile + Backend</b></div>
+          <div class="mini-row"><span>Stack</span><b>Expo • Firebase • SQL</b></div>
+          <div class="mini-row"><span>Hedef</span><b>Ürünleşen projeler</b></div>
         </div>
+      </div>
+    </section>
 
-        <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600">
-            <h3>LexiKart</h3>
-            <p>İngilizce kelime uygulaması. Öğrenme algoritması + Firestore entegrasyonu.</p>
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2 class="section-title">Yetenekler</h2>
+      <p class="section-desc">
+        Günlük geliştirme akışımda kullandığım ana teknoloji seti. Proje bazlı olarak yeni araçları hızlı öğrenip adapte oluyorum.
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-top">
+            <div class="skill-name">Mobile</div>
+            <span class="skill-tag">React Native / Expo</span>
+          </div>
+          <div class="skill-list">Expo Router • Zustand • Android build (APK/AAB) • UI/UX iyileştirmeleri</div>
         </div>
 
-        <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=600">
-            <h3>Yurt Yönetim Sistemi</h3>
-            <p>SQL Server tabanlı geniş kapsamlı yönetim otomasyonu.</p>
+        <div class="skill-card">
+          <div class="skill-top">
+            <div class="skill-name">Backend</div>
+            <span class="skill-tag">Node.js</span>
+          </div>
+          <div class="skill-list">Express • REST API • Auth • Validasyon • Temiz mimari yaklaşımı</div>
         </div>
 
-    </div>
-</section>
+        <div class="skill-card">
+          <div class="skill-top">
+            <div class="skill-name">Database</div>
+            <span class="skill-tag">SQL Server</span>
+          </div>
+          <div class="skill-list">İlişkisel tasarım • Stored Procedure • Trigger • Performans/Index mantığı</div>
+        </div>
 
-<!-- CONTACT -->
-<section id="contact">
-    <div class="contact-panel">
-        <h2 class="section-title">İletişim</h2>
-        <p>Email: <b>bugraesim@gmail.com</b></p>
-        <p>GitHub: github.com/mBugraEsim</p>
-        <p>LinkedIn: linkedin.com/in/mbugraesim</p>
-    </div>
-</section>
+        <div class="skill-card">
+          <div class="skill-top">
+            <div class="skill-name">Cloud</div>
+            <span class="skill-tag">Firebase</span>
+          </div>
+          <div class="skill-list">Auth • Firestore • Rules • (Plan) Cloud Functions ile AI entegrasyonu</div>
+        </div>
 
-<footer>
-    © 2025 Xreybes — Ultra Premium Portfolio
-</footer>
+        <div class="skill-card">
+          <div class="skill-top">
+            <div class="skill-name">Web</div>
+            <span class="skill-tag">HTML/CSS/JS</span>
+          </div>
+          <div class="skill-list">Responsive UI • Form doğrulama • LocalStorage • Basit ama düzgün frontend</div>
+        </div>
 
-<!-- PARTICLES JS CDN -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <div class="skill-card">
+          <div class="skill-top">
+            <div class="skill-name">Security</div>
+            <span class="skill-tag">İlgi Alanı</span>
+          </div>
+          <div class="skill-list">Phishing/Link güvenliği • Temel güvenli geliştirme prensipleri • OWASP farkındalığı</div>
+        </div>
+      </div>
+    </section>
 
-<script>
-particlesJS("particles-js", {
-    "particles":{
-        "number":{"value":85},
-        "size":{"value":3},
-        "move":{"speed":2},
-        "line_linked":{"enable":true,"distance":150,"color":"#983bff"},
-        "color":{"value":"#bb68ff"}
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2 class="section-title">Projeler</h2>
+      <p class="section-desc">
+        Aşağıdaki projeler, gerçek kullanım senaryosu düşünülerek geliştirilmiştir. Filtrelerden proje türüne göre hızlı gezebilirsin.
+      </p>
+
+      <div class="projects-toolbar">
+        <input id="search" class="search" type="text" placeholder="Proje ara… (örn: Firebase, SQL, Harita)" />
+        <div class="filters">
+          <button class="chip active" data-filter="all">Tümü</button>
+          <button class="chip" data-filter="mobile">Mobile</button>
+          <button class="chip" data-filter="backend">Backend</button>
+          <button class="chip" data-filter="db">Database</button>
+          <button class="chip" data-filter="ai">AI</button>
+          <button class="chip" data-filter="defense">Savunma</button>
+        </div>
+      </div>
+
+      <div id="projectsGrid" class="projects-grid">
+        <!-- İşHarita / İşCepte -->
+        <article class="project-card" data-tags="mobile backend firebase">
+          <img class="project-thumb" src="https://images.unsplash.com/photo-1505238680356-667803448bb6?w=1200" alt="Map app" />
+          <div class="project-head">
+            <div>
+              <div class="project-title">İşHarita (İşCepte) — Harita Tabanlı İlan Platformu</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge">React Native</span>
+              <span class="badge">Expo</span>
+              <span class="badge">Firebase</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Konum bazlı ilan listeleme ve başvuru akışı. Android APK build süreçleri, UI iyileştirmeleri ve ileride “İlanımı İyileştir” AI özelliği planı.
+          </p>
+          <div class="project-actions">
+            <a class="a-link" href="https://github.com/mbugraesim/isharita-mobile" target="_blank" rel="noopener">💻 Repo</a>
+            <a class="a-link" href="#contact">📩 İletişim</a>
+          </div>
+        </article>
+
+        <!-- ATEUS -->
+        <article class="project-card" data-tags="ai defense analytics">
+          <img class="project-thumb" src="https://images.unsplash.com/photo-1510511233900-1982d92bd835?w=1200" alt="Security analytics" />
+          <div class="project-head">
+            <div>
+              <div class="project-title">ATEUS — Tehdit Erken Uyarı & Karar Destek Sistemi</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge">Risk Skoru</span>
+              <span class="badge">Harita</span>
+              <span class="badge">Analitik</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Çoklu veri kaynağından gelen sinyalleri analiz edip risk skorlarıyla sınıflandıran, harita tabanlı arayüzde komuta kademesine sunan erken uyarı konsepti.
+          </p>
+          <div class="project-actions">
+            <a class="a-link" href="#contact">🧠 Detay İste</a>
+            <a class="a-link" href="#contact">🤝 Ekip Çalışması</a>
+          </div>
+        </article>
+
+        <!-- LexiKart -->
+        <article class="project-card" data-tags="mobile db firebase">
+          <img class="project-thumb" src="https://images.unsplash.com/photo-1516382799247-87df95d790b7?w=1200" alt="Vocabulary app" />
+          <div class="project-head">
+            <div>
+              <div class="project-title">LexiKart — Kelime Öğrenme Uygulaması</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge">Android</span>
+              <span class="badge">Kotlin</span>
+              <span class="badge">Room</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Kelime kartları, favoriler, rastgele/filtreli çalışma. İçe/dışa aktarma formatları ve günlük pratik akışı. (Plan: Firestore senkron)
+          </p>
+          <div class="project-actions">
+            <a class="a-link" href="#contact">📌 Demo İste</a>
+          </div>
+        </article>
+
+        <!-- Yurt Yönetim Sistemi -->
+        <article class="project-card" data-tags="db backend sql">
+          <img class="project-thumb" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200" alt="Database" />
+          <div class="project-head">
+            <div>
+              <div class="project-title">Yurt Yönetim Sistemi — SQL Server Tabanlı Otomasyon</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge">SQL Server</span>
+              <span class="badge">SP/Trigger</span>
+              <span class="badge">REST API</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            81 il konseptli yurt veritabanı tasarımı. Node.js (Express) ile REST API planı ve Android uygulama ile Retrofit bağlantısı hedefi.
+          </p>
+          <div class="project-actions">
+            <a class="a-link" href="#contact">🗄️ Şema İste</a>
+          </div>
+        </article>
+
+        <!-- Akıllı Mahalle Ağı -->
+        <article class="project-card" data-tags="mobile ai firebase">
+          <img class="project-thumb" src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200" alt="Community network" />
+          <div class="project-head">
+            <div>
+              <div class="project-title">Akıllı Mahalle Ağı — Topluluk Tabanlı Yardım Sistemi</div>
+            </div>
+            <div class="project-badges">
+              <span class="badge">Firebase</span>
+              <span class="badge">Otomasyon</span>
+              <span class="badge">AI (Plan)</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            Mahalle içinde ihtiyaç/yardım taleplerinin eşleştirilmesi. Firebase + otomasyon katmanı ile bildirim/önceliklendirme planı.
+          </p>
+          <div class="project-actions">
+            <a class="a-link" href="#contact">🧩 Yol Haritası</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2 class="section-title">İletişim</h2>
+      <p class="section-desc">
+        Proje iş birliği, staj veya demo talebi için iletişime geçebilirsin.
+      </p>
+
+      <div class="contact-wrap">
+        <div class="contact-panel">
+          <div class="contact-grid">
+            <div class="contact-item"><b>Email</b><br/>bugraesim66@gmail.com</div>
+            <div class="contact-item"><b>GitHub</b><br/><a href="https://github.com/mbugraesim" target="_blank" rel="noopener">github.com/mbugraesim</a></div>
+            <div class="contact-item"><b>LinkedIn</b><br/><a href="https://linkedin.com/in/mbugraesim" target="_blank" rel="noopener">linkedin.com/in/mbugraesim</a></div>
+            <div class="contact-item"><b>Telefon</b><br/>+90 532 xxx xx xx</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2026 Xreybes — Portfolio</footer>
+
+  <!-- Particles -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <script>
+    // particles config
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 75 },
+        size: { value: 3 },
+        move: { speed: 2 },
+        line_linked: { enable: true, distance: 150, color: "#983bff" },
+        color: { value: "#bb68ff" },
+        opacity: { value: 0.7 }
+      }
+    });
+
+    // simple projects search + filter
+    const search = document.getElementById("search");
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    const cards = Array.from(document.querySelectorAll(".project-card"));
+
+    let activeFilter = "all";
+
+    function normalize(s){
+      return (s || "").toLowerCase().trim();
     }
-});
-</script>
 
+    function apply(){
+      const q = normalize(search.value);
+      cards.forEach(card => {
+        const tags = normalize(card.getAttribute("data-tags"));
+        const text = normalize(card.innerText);
+        const matchesQuery = !q || text.includes(q) || tags.includes(q);
+
+        const matchesFilter =
+          activeFilter === "all" ||
+          tags.includes(activeFilter);
+
+        card.style.display = (matchesQuery && matchesFilter) ? "flex" : "none";
+      });
+    }
+
+    chips.forEach(ch => {
+      ch.addEventListener("click", () => {
+        chips.forEach(x => x.classList.remove("active"));
+        ch.classList.add("active");
+        activeFilter = ch.dataset.filter;
+        apply();
+      });
+    });
+
+    search.addEventListener("input", apply);
+  </script>
 </body>
 </html>
