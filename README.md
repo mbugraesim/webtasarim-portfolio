@@ -1,20 +1,19 @@
-# 🌐 M.Buğra Esim Portfolio
+# M. Buğra Esim — Portfolio
 
-🚀 Canlı siteyi görüntüle:
+Mobil uygulama, backend ve veri tabanı projelerimi sergilediğim kişisel portföy sitem.
 
-👉 https://mbugraesim.github.io/webtasarim-portfolio/
+## Canlı site
 
----
+https://mbugraesim.github.io/webtasarim-portfolio/
 
-## Proje Hakkında
-Bu proje kişisel portföy web sitemdir.  
-Modern arayüz, animasyonlar ve responsive tasarım içerir.
+## Öne çıkanlar
 
-## Kullanılan Teknolojiler
-- HTML5
-- CSS3
-- JavaScript
-- Particles.js
+- Modern ve tüm ekranlara uyumlu arayüz
+- Erişilebilir klavye ve mobil menü deneyimi
+- Seçili projeler ve teknoloji yetkinlikleri
+- Sosyal medya paylaşım görseli ve SEO açıklamaları
+- Hafif, bağımlılıksız HTML/CSS/JavaScript yapısı
 
-## Amaç
-Projelerimi, yeteneklerimi ve geliştirdiğim uygulamaları sergilemek için hazırlanmıştır.
+## Teknolojiler
+
+HTML5 · CSS3 · JavaScript

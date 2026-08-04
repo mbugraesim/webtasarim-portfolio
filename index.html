@@ -1,18 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>Yönlendiriliyor...</title>
-
-    <!-- Anında yönlendirme -->
-    <meta http-equiv="refresh" content="0; url=p1/">
-
-    <!-- JS fallback (bazı tarayıcılar için) -->
-    <script>
-        window.location.href = "p1/";
-    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="M. Buğra Esim — mobil uygulama, backend ve veri tabanı projeleri geliştiren yazılım mühendisliği öğrencisi.">
+  <meta name="theme-color" content="#0b0d10">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="M. Buğra Esim — Yazılım Geliştirici">
+  <meta property="og:description" content="Mobil uygulama, backend ve veri tabanı projeleri.">
+  <meta property="og:url" content="https://mbugraesim.github.io/webtasarim-portfolio/">
+  <meta property="og:image" content="https://mbugraesim.github.io/webtasarim-portfolio/assets/og-portfolio.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="M. Buğra Esim — Yazılım Geliştirici">
+  <meta name="twitter:description" content="Mobil uygulama, backend ve veri tabanı projeleri.">
+  <meta name="twitter:image" content="https://mbugraesim.github.io/webtasarim-portfolio/assets/og-portfolio.png">
+  <title>M. Buğra Esim — Yazılım Geliştirici</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <p>Siteye yönlendiriliyorsunuz...</p>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Ana sayfa"><span>MB</span> M. Buğra Esim</a>
+    <nav class="desktop-nav" aria-label="Ana menü">
+      <a href="#about">Hakkımda</a><a href="#projects">Projeler</a><a href="#skills">Yetenekler</a><a href="#contact">İletişim</a>
+    </nav>
+    <a class="header-cta" href="mailto:bugraesim66@gmail.com">Birlikte çalışalım <span>↗</span></a>
+    <button class="menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <div class="mobile-nav" aria-hidden="true">
+    <a href="#about">Hakkımda</a><a href="#projects">Projeler</a><a href="#skills">Yetenekler</a><a href="#contact">İletişim</a>
+  </div>
+
+  <main id="main">
+    <section class="hero shell">
+      <div class="eyebrow reveal"><span></span> Yeni fikirler ve iş birlikleri için müsait</div>
+      <h1 class="reveal">Fikri, çalışan bir<br><em>dijital ürüne</em> dönüştürüyorum.</h1>
+      <div class="hero-bottom reveal">
+        <p>Mobil uygulamalar, güvenilir backend sistemleri ve güçlü veri tabanı çözümleri geliştiriyorum. Karmaşık problemleri sade, kullanılabilir ürünlere dönüştürmeyi seviyorum.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Projeleri incele <span>↓</span></a>
+          <a class="button ghost" href="https://github.com/mbugraesim" target="_blank" rel="noopener">GitHub <span>↗</span></a>
+        </div>
+      </div>
+      <div class="hero-visual reveal" aria-label="Uzmanlık alanları">
+        <div class="visual-copy"><span>01 / Yaklaşım</span><strong>Mobil odaklı.<br>Ürün düşünceli.<br>Ölçeklenebilir.</strong></div>
+        <div class="orbit" aria-hidden="true"><div class="orb"></div><div class="ring r1"></div><div class="ring r2"></div></div>
+        <div class="visual-tags"><span>React Native</span><span>Node.js</span><span>Firebase</span><span>SQL Server</span></div>
+      </div>
+    </section>
+
+    <section class="about shell section" id="about">
+      <div class="section-kicker"><span>01</span> Hakkımda</div>
+      <div class="about-grid">
+        <h2>Teknolojiyi sadece kullanmıyor,<br><em>doğru probleme</em> uyguluyorum.</h2>
+        <div class="about-copy">
+          <p>Yazılım mühendisliği öğrencisi olarak mobil geliştirme, backend ve veri tabanı tasarımı üzerinde çalışıyorum. Projelerimde temiz mimari, anlaşılır arayüz ve gerçek kullanım senaryolarını birlikte ele alıyorum.</p>
+          <p>Yeni teknolojileri hızlı öğrenen, araştırmayı ve üretmeyi seven bir geliştiriciyim. Siber güvenlik ve yapay zekâ destekli sistemler de ilgi alanlarım arasında.</p>
+          <a class="text-link" href="#contact">Benimle iletişime geç <span>↗</span></a>
+        </div>
+      </div>
+      <div class="principles">
+        <div><span>01</span><strong>Problemi anla</strong><p>Koda başlamadan önce ihtiyacı ve kullanıcı akışını netleştiririm.</p></div>
+        <div><span>02</span><strong>Sade tasarla</strong><p>Gereksiz karmaşayı azaltır, anlaşılır deneyimler kurarım.</p></div>
+        <div><span>03</span><strong>Sağlam geliştir</strong><p>Bakımı kolay, genişleyebilir ve güvenilir yapılar oluştururum.</p></div>
+      </div>
+    </section>
+
+    <section class="projects shell section" id="projects">
+      <div class="section-kicker"><span>02</span> Seçili projeler</div>
+      <div class="section-heading"><h2>Ürettiğim<br><em>çalışmalar.</em></h2><p>Mobil deneyimlerden veri tabanı otomasyonlarına uzanan, farklı problemlere odaklanan seçili projeler.</p></div>
+      <div class="project-list">
+        <article class="project featured reveal">
+          <div class="project-art art-map"><div class="map-line"></div><span class="pin p1"></span><span class="pin p2"></span><span class="pin p3"></span><div class="phone-mock"><div class="phone-top"></div><b>Yakındaki İlanlar</b><i></i><i></i><i></i></div></div>
+          <div class="project-info"><div class="project-number">01 / MOBİL UYGULAMA</div><h3>İşHarita</h3><p>Konum bazlı iş ilanlarını harita üzerinde keşfetmeyi ve hızlı başvuru akışını bir araya getiren mobil platform.</p><div class="tech"><span>React Native</span><span>Expo</span><span>Firebase</span></div><a href="https://github.com/mbugraesim/isharita-mobile" target="_blank" rel="noopener" class="circle-link" aria-label="İşHarita GitHub deposu">↗</a></div>
+        </article>
+        <article class="project reverse reveal">
+          <div class="project-art art-ateus"><div class="radar"><span></span></div><div class="metric"><small>RİSK SEVİYESİ</small><b>72</b><i>Yüksek öncelik</i></div></div>
+          <div class="project-info"><div class="project-number">02 / KARAR DESTEK</div><h3>ATEUS</h3><p>Farklı sinyalleri analiz ederek risk skorlarına dönüştüren, harita tabanlı tehdit erken uyarı ve karar destek konsepti.</p><div class="tech"><span>Analitik</span><span>Harita</span><span>Risk Modeli</span></div><a href="mailto:bugraesim66@gmail.com?subject=ATEUS%20hakkında" class="circle-link" aria-label="ATEUS hakkında iletişim">↗</a></div>
+        </article>
+        <article class="project reveal">
+          <div class="project-art art-lexi"><div class="flashcard back">practice</div><div class="flashcard front"><small>GÜNÜN KELİMESİ</small><b>curiosity</b><span>merak</span></div></div>
+          <div class="project-info"><div class="project-number">03 / ANDROID</div><h3>LexiKart</h3><p>Kelime kartları, favoriler ve kişiselleştirilmiş pratik akışlarıyla düzenli öğrenmeyi destekleyen Android uygulaması.</p><div class="tech"><span>Kotlin</span><span>Room</span><span>Android</span></div><a href="mailto:bugraesim66@gmail.com?subject=LexiKart%20demo" class="circle-link" aria-label="LexiKart demosu iste">↗</a></div>
+        </article>
+        <article class="project reverse reveal">
+          <div class="project-art art-data"><div class="db-stack"><i></i><i></i><i></i></div><div class="code-lines"><span></span><span></span><span></span><span></span></div></div>
+          <div class="project-info"><div class="project-number">04 / VERİ TABANI</div><h3>Yurt Yönetim Sistemi</h3><p>Yurt, öğrenci ve operasyon süreçlerini ilişkisel veri modeliyle yöneten SQL Server tabanlı otomasyon çalışması.</p><div class="tech"><span>SQL Server</span><span>Stored Procedure</span><span>REST API</span></div><a href="mailto:bugraesim66@gmail.com?subject=Yurt%20Yönetim%20Sistemi" class="circle-link" aria-label="Yurt Yönetim Sistemi hakkında iletişim">↗</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="skills shell section" id="skills">
+      <div class="section-kicker"><span>03</span> Yetkinlikler</div>
+      <div class="skills-grid">
+        <div><h2>Kullandığım<br><em>araçlar.</em></h2><p>Projeye uygun teknolojiyi seçiyor, ürünün bütününü düşünerek geliştiriyorum.</p></div>
+        <div class="skill-groups">
+          <div><span>01</span><h3>Mobil geliştirme</h3><p>React Native · Expo · Expo Router · Kotlin · Android</p></div>
+          <div><span>02</span><h3>Backend & veri</h3><p>Node.js · Express · REST API · SQL Server · Room</p></div>
+          <div><span>03</span><h3>Cloud & araçlar</h3><p>Firebase Auth · Firestore · Git · GitHub · Postman</p></div>
+          <div><span>04</span><h3>Web & ürün</h3><p>HTML · CSS · JavaScript · Responsive UI · Temel UX</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="shell contact-inner">
+        <div class="section-kicker light"><span>04</span> İletişim</div>
+        <p>Bir fikrin mi var?</p><h2>Birlikte<br><em>geliştirelim.</em></h2>
+        <a class="email-link" href="mailto:bugraesim66@gmail.com">bugraesim66@gmail.com <span>↗</span></a>
+        <div class="contact-bottom"><span>Staj, proje ve iş birliği görüşmelerine açığım.</span><div><a href="https://github.com/mbugraesim" target="_blank" rel="noopener">GitHub ↗</a><a href="https://linkedin.com/in/mbugraesim" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell"><span>© <span id="year"></span> M. Buğra Esim</span><a href="#top">Yukarı dön ↑</a></footer>
 </body>
 </html>
