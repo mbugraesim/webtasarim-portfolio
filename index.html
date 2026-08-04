@@ -19,16 +19,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-effects.css">
+  <link rel="stylesheet" href="theme-v3.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
   <header class="site-header" id="top">
     <a class="brand" href="#top" aria-label="Ana sayfa"><span>MB</span> M. Buğra Esim</a>
     <nav class="desktop-nav" aria-label="Ana menü">
       <a href="#about">Hakkımda</a><a href="#projects">Projeler</a><a href="#skills">Yetenekler</a><a href="#contact">İletişim</a>
     </nav>
-    <a class="header-cta" href="mailto:bugraesim66@gmail.com">Birlikte çalışalım <span>↗</span></a>
+    <a class="header-cta" href="mailto:bugraesim@hotmail.com">Birlikte çalışalım <span>↗</span></a>
     <button class="menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span></button>
   </header>
 
@@ -47,11 +51,16 @@
           <a class="button ghost" href="https://github.com/mbugraesim" target="_blank" rel="noopener">GitHub <span>↗</span></a>
         </div>
       </div>
+      <div class="hero-status reveal"><span class="status-pulse"></span><div><small>ŞU ANDA</small><strong>Yeni nesil dijital ürünler geliştiriyorum</strong></div><b>TR / 2026</b></div>
       <div class="hero-visual reveal" aria-label="Uzmanlık alanları">
         <div class="visual-copy"><span>01 / Yaklaşım</span><strong>Mobil odaklı.<br>Ürün düşünceli.<br>Ölçeklenebilir.</strong></div>
         <div class="orbit" aria-hidden="true"><div class="orb"></div><div class="ring r1"></div><div class="ring r2"></div></div>
         <div class="visual-tags"><span>React Native</span><span>Node.js</span><span>Firebase</span><span>SQL Server</span></div>
       </div>
+      <div class="marquee reveal" aria-label="Teknoloji alanları"><div class="marquee-track">
+        <span>MOBİL GELİŞTİRME</span><i>✦</i><span>BACKEND SİSTEMLERİ</span><i>✦</i><span>VERİ TABANI</span><i>✦</i><span>ÜRÜN TASARIMI</span><i>✦</i>
+        <span aria-hidden="true">MOBİL GELİŞTİRME</span><i aria-hidden="true">✦</i><span aria-hidden="true">BACKEND SİSTEMLERİ</span><i aria-hidden="true">✦</i><span aria-hidden="true">VERİ TABANI</span><i aria-hidden="true">✦</i><span aria-hidden="true">ÜRÜN TASARIMI</span><i aria-hidden="true">✦</i>
+      </div></div>
     </section>
 
     <section class="about shell section" id="about">
@@ -69,6 +78,11 @@
         <div><span>02</span><strong>Sade tasarla</strong><p>Gereksiz karmaşayı azaltır, anlaşılır deneyimler kurarım.</p></div>
         <div><span>03</span><strong>Sağlam geliştir</strong><p>Bakımı kolay, genişleyebilir ve güvenilir yapılar oluştururum.</p></div>
       </div>
+      <div class="numbers reveal" aria-label="Çalışma özeti">
+        <div><strong>06<span>+</span></strong><p>Öne çıkan proje</p></div>
+        <div><strong>03</strong><p>Temel uzmanlık alanı</p></div>
+        <div><strong>∞</strong><p>Öğrenme motivasyonu</p></div>
+      </div>
     </section>
 
     <section class="projects shell section" id="projects">
@@ -77,19 +91,27 @@
       <div class="project-list">
         <article class="project featured reveal">
           <div class="project-art art-map"><div class="map-line"></div><span class="pin p1"></span><span class="pin p2"></span><span class="pin p3"></span><div class="phone-mock"><div class="phone-top"></div><b>Yakındaki İlanlar</b><i></i><i></i><i></i></div></div>
-          <div class="project-info"><div class="project-number">01 / MOBİL UYGULAMA</div><h3>İşHarita</h3><p>Konum bazlı iş ilanlarını harita üzerinde keşfetmeyi ve hızlı başvuru akışını bir araya getiren mobil platform.</p><div class="tech"><span>React Native</span><span>Expo</span><span>Firebase</span></div><a href="https://github.com/mbugraesim/isharita-mobile" target="_blank" rel="noopener" class="circle-link" aria-label="İşHarita GitHub deposu">↗</a></div>
+          <div class="project-info"><div class="project-number">01 / MOBİL UYGULAMA</div><h3>İşHarita</h3><p>Konum bazlı iş ilanlarını harita üzerinde keşfetmeyi ve hızlı başvuru akışını bir araya getiren mobil platform.</p><div class="tech"><span>React Native</span><span>Expo</span><span>Firebase</span></div><a href="mailto:bugraesim@hotmail.com?subject=İşHarita%20demo" class="circle-link" aria-label="İşHarita demosu iste">↗</a></div>
         </article>
         <article class="project reverse reveal">
           <div class="project-art art-ateus"><div class="radar"><span></span></div><div class="metric"><small>RİSK SEVİYESİ</small><b>72</b><i>Yüksek öncelik</i></div></div>
-          <div class="project-info"><div class="project-number">02 / KARAR DESTEK</div><h3>ATEUS</h3><p>Farklı sinyalleri analiz ederek risk skorlarına dönüştüren, harita tabanlı tehdit erken uyarı ve karar destek konsepti.</p><div class="tech"><span>Analitik</span><span>Harita</span><span>Risk Modeli</span></div><a href="mailto:bugraesim66@gmail.com?subject=ATEUS%20hakkında" class="circle-link" aria-label="ATEUS hakkında iletişim">↗</a></div>
+          <div class="project-info"><div class="project-number">02 / KARAR DESTEK</div><h3>ATEUS</h3><p>Farklı sinyalleri analiz ederek risk skorlarına dönüştüren, harita tabanlı tehdit erken uyarı ve karar destek konsepti.</p><div class="tech"><span>Analitik</span><span>Harita</span><span>Risk Modeli</span></div><a href="mailto:bugraesim@hotmail.com?subject=ATEUS%20hakkında" class="circle-link" aria-label="ATEUS hakkında iletişim">↗</a></div>
         </article>
         <article class="project reveal">
           <div class="project-art art-lexi"><div class="flashcard back">practice</div><div class="flashcard front"><small>GÜNÜN KELİMESİ</small><b>curiosity</b><span>merak</span></div></div>
-          <div class="project-info"><div class="project-number">03 / ANDROID</div><h3>LexiKart</h3><p>Kelime kartları, favoriler ve kişiselleştirilmiş pratik akışlarıyla düzenli öğrenmeyi destekleyen Android uygulaması.</p><div class="tech"><span>Kotlin</span><span>Room</span><span>Android</span></div><a href="mailto:bugraesim66@gmail.com?subject=LexiKart%20demo" class="circle-link" aria-label="LexiKart demosu iste">↗</a></div>
+          <div class="project-info"><div class="project-number">03 / MOBİL UYGULAMA</div><h3>LexiKart</h3><p>3D kart çevirme animasyonu, rastgele çalışma, kelime yönetimi ve TXT içe aktarma özellikleriyle kişisel kelime öğrenme uygulaması.</p><div class="tech"><span>React Native</span><span>Expo</span><span>TypeScript</span><span>AsyncStorage</span></div><a href="https://github.com/mbugraesim/lexicart-mobile" target="_blank" rel="noopener" class="circle-link" aria-label="LexiKart GitHub deposu">↗</a></div>
         </article>
         <article class="project reverse reveal">
           <div class="project-art art-data"><div class="db-stack"><i></i><i></i><i></i></div><div class="code-lines"><span></span><span></span><span></span><span></span></div></div>
-          <div class="project-info"><div class="project-number">04 / VERİ TABANI</div><h3>Yurt Yönetim Sistemi</h3><p>Yurt, öğrenci ve operasyon süreçlerini ilişkisel veri modeliyle yöneten SQL Server tabanlı otomasyon çalışması.</p><div class="tech"><span>SQL Server</span><span>Stored Procedure</span><span>REST API</span></div><a href="mailto:bugraesim66@gmail.com?subject=Yurt%20Yönetim%20Sistemi" class="circle-link" aria-label="Yurt Yönetim Sistemi hakkında iletişim">↗</a></div>
+          <div class="project-info"><div class="project-number">04 / VERİ TABANI</div><h3>Yurt Yönetim Sistemi</h3><p>Yurt, öğrenci ve operasyon süreçlerini ilişkisel veri modeliyle yöneten SQL Server tabanlı otomasyon çalışması.</p><div class="tech"><span>SQL Server</span><span>Stored Procedure</span><span>REST API</span></div><a href="mailto:bugraesim@hotmail.com?subject=Yurt%20Yönetim%20Sistemi" class="circle-link" aria-label="Yurt Yönetim Sistemi hakkında iletişim">↗</a></div>
+        </article>
+        <article class="project reveal">
+          <div class="project-art art-neighborhood"><div class="network-core">AI</div><div class="network-node n1">İHTİYAÇ</div><div class="network-node n2">GÖNÜLLÜ</div><div class="network-node n3">KONUM</div><i class="network-line l1"></i><i class="network-line l2"></i><i class="network-line l3"></i></div>
+          <div class="project-info"><div class="project-number">05 / AKILLI TOPLULUK</div><h3>Akıllı Mahalle Ağı</h3><p>Mahalle içindeki ihtiyaç ve yardım taleplerini konum, öncelik ve uygunluk bilgileriyle eşleştirerek dayanışmayı hızlandıran topluluk platformu.</p><div class="tech"><span>Firebase</span><span>Otomasyon</span><span>Konum</span><span>AI Destekli</span></div><a href="mailto:bugraesim@hotmail.com?subject=Akıllı%20Mahalle%20Ağı" class="circle-link" aria-label="Akıllı Mahalle Ağı hakkında iletişim">↗</a></div>
+        </article>
+        <article class="project reverse reveal project-ssh">
+          <div class="project-art art-ssh"><div class="terminal-panel"><div class="terminal-head"><span></span><span></span><span></span><b>SSH / OPERATIONS</b></div><div class="terminal-row"><i class="online"></i><span>server-prod-01</span><b>ONLINE</b></div><div class="terminal-row"><i class="warning"></i><span>api-node-02</span><b>WARNING</b></div><div class="terminal-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="incident-badge"><small>AKTİF ARIZA</small><strong>03</strong><span>Canlı izleme</span></div></div>
+          <div class="project-info"><div class="project-number">06 / SİSTEM YÖNETİMİ</div><h3>SSH Arıza Yönetim Paneli</h3><p>SSH üzerinden yönetilen sistemlerin durumunu tek merkezde görünür kılan; arıza takibi, önceliklendirme ve operasyon akışını kolaylaştıran yönetim paneli.</p><div class="tech"><span>SSH</span><span>Sunucu İzleme</span><span>Arıza Yönetimi</span><span>Dashboard</span></div><a href="mailto:bugraesim@hotmail.com?subject=SSH%20Arıza%20Yönetim%20Paneli" class="circle-link" aria-label="SSH Arıza Yönetim Paneli hakkında iletişim">↗</a></div>
         </article>
       </div>
     </section>
@@ -111,8 +133,8 @@
       <div class="shell contact-inner">
         <div class="section-kicker light"><span>04</span> İletişim</div>
         <p>Bir fikrin mi var?</p><h2>Birlikte<br><em>geliştirelim.</em></h2>
-        <a class="email-link" href="mailto:bugraesim66@gmail.com">bugraesim66@gmail.com <span>↗</span></a>
-        <div class="contact-bottom"><span>Staj, proje ve iş birliği görüşmelerine açığım.</span><div><a href="https://github.com/mbugraesim" target="_blank" rel="noopener">GitHub ↗</a><a href="https://linkedin.com/in/mbugraesim" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
+        <a class="email-link" href="mailto:bugraesim@hotmail.com">bugraesim@hotmail.com <span>↗</span></a>
+        <div class="contact-bottom"><span>Staj, proje ve iş birliği görüşmelerine açığım.</span><div><a href="https://github.com/mbugraesim" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/codingwithesim3866" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
       </div>
     </section>
   </main>
