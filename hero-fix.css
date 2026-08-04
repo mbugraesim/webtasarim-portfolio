@@ -1,0 +1,12 @@
+#particleCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.78}
+body>main,body>footer{position:relative;z-index:1}
+.hero{padding-top:72px}
+.hero h1{font-size:clamp(52px,6.1vw,88px);line-height:.88;max-width:1080px;margin:28px 0}
+.hero h1 em{display:inline-block;padding:0 .16em .07em 0;margin-right:-.08em;line-height:.96;overflow:visible}
+.hero-bottom{margin-left:42%;grid-template-columns:minmax(320px,1fr) auto;gap:28px;align-items:center}
+.hero-bottom p{margin:0;font-size:16px;line-height:1.7}
+.hero-actions{margin-top:0;justify-content:flex-end}
+.hero-status{margin-top:28px}
+@media(max-width:800px){.hero{padding-top:62px}.hero h1{font-size:12.7vw;line-height:.92;margin:26px 0}.hero-bottom{margin-left:0;display:block}.hero-actions{margin-top:24px;justify-content:flex-start}}
+@media(max-height:850px) and (min-width:801px){.hero{padding-top:48px}.hero h1{font-size:clamp(52px,6vw,84px);margin:22px 0}.hero-status{margin-top:22px}.hero-visual{margin-top:52px}}
+@media(prefers-reduced-motion:reduce){#particleCanvas{opacity:.45}}
