@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="M. Buğra Esim — mobil uygulama, backend ve veri tabanı projeleri geliştiren yazılım mühendisliği öğrencisi.">
+  <meta name="description" content="Muhammed Buğra Esim — Malatya Turgut Özal Üniversitesi 4. sınıf öğrencisi; mobil uygulama, backend ve veri tabanı projeleri geliştiren yazılım geliştirici.">
   <meta name="theme-color" content="#0b0d10">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="M. Buğra Esim — Yazılım Geliştirici">
+  <meta property="og:title" content="Muhammed Buğra Esim — Yazılım Geliştirici">
   <meta property="og:description" content="Mobil uygulama, backend ve veri tabanı projeleri.">
   <meta property="og:url" content="https://mbugraesim.github.io/webtasarim-portfolio/">
   <meta property="og:image" content="https://mbugraesim.github.io/webtasarim-portfolio/assets/og-portfolio.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="M. Buğra Esim — Yazılım Geliştirici">
+  <meta name="twitter:title" content="Muhammed Buğra Esim — Yazılım Geliştirici">
   <meta name="twitter:description" content="Mobil uygulama, backend ve veri tabanı projeleri.">
   <meta name="twitter:image" content="https://mbugraesim.github.io/webtasarim-portfolio/assets/og-portfolio.png">
-  <title>M. Buğra Esim — Yazılım Geliştirici</title>
+  <title>Muhammed Buğra Esim — Yazılım Geliştirici</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -22,15 +22,17 @@
   <link rel="stylesheet" href="style-effects.css">
   <link rel="stylesheet" href="theme-v3.css">
   <link rel="stylesheet" href="hero-fix.css">
+  <link rel="stylesheet" href="polish.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">İçeriğe geç</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <canvas id="particleCanvas" aria-hidden="true"></canvas>
   <div class="cursor-glow" aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Ana sayfa"><span>MB</span> M. Buğra Esim</a>
+    <a class="brand" href="#top" aria-label="Ana sayfa"><span>MB</span> Muhammed Buğra Esim</a>
     <nav class="desktop-nav" aria-label="Ana menü">
       <a href="#about">Hakkımda</a><a href="#projects">Projeler</a><a href="#skills">Yetenekler</a><a href="#contact">İletişim</a>
     </nav>
@@ -68,12 +70,34 @@
     <section class="about shell section" id="about">
       <div class="section-kicker"><span>01</span> Hakkımda</div>
       <div class="about-grid">
-        <h2>Teknolojiyi sadece kullanmıyor,<br><em>doğru probleme</em> uyguluyorum.</h2>
+        <div class="about-intro">
+          <h2>Öğrenirken üretiyor,<br><em>fikirleri ürüne</em> dönüştürüyorum.</h2>
+          <div class="profile-card reveal" aria-label="Eğitim bilgileri">
+            <div class="profile-monogram" aria-hidden="true">MBE</div>
+            <div class="profile-card-copy">
+              <span>EĞİTİM / 2026</span>
+              <strong>Malatya Turgut Özal Üniversitesi</strong>
+              <p>4. sınıf öğrencisi</p>
+            </div>
+            <span class="profile-status">Aktif</span>
+          </div>
+        </div>
         <div class="about-copy">
-          <p>Yazılım mühendisliği öğrencisi olarak mobil geliştirme, backend ve veri tabanı tasarımı üzerinde çalışıyorum. Projelerimde temiz mimari, anlaşılır arayüz ve gerçek kullanım senaryolarını birlikte ele alıyorum.</p>
-          <p>Yeni teknolojileri hızlı öğrenen, araştırmayı ve üretmeyi seven bir geliştiriciyim. Siber güvenlik ve yapay zekâ destekli sistemler de ilgi alanlarım arasında.</p>
+          <span class="about-label">KISACA BEN</span>
+          <p class="about-lead">Ben <strong>Muhammed Buğra Esim.</strong> Malatya Turgut Özal Üniversitesi'nde 4. sınıf öğrencisi ve çözüm üretme motivasyonuyla çalışan bir yazılım geliştiriciyim.</p>
+          <p>Mobil uygulama geliştirme, backend sistemleri ve veri tabanı tasarımı üzerine yoğunlaşıyorum. React Native, Node.js, Firebase ve SQL Server gibi teknolojilerle; gerçek ihtiyaçlara karşılık veren, anlaşılır ve sürdürülebilir ürünler geliştirmeyi hedefliyorum.</p>
+          <p>Araştırmayı, yeni teknolojileri deneyerek öğrenmeyi ve bir fikri çalışan ürüne dönüştürmenin her aşamasında sorumluluk almayı seviyorum. Yapay zekâ destekli sistemler, siber güvenlik ve kullanıcı odaklı ürün geliştirme de ilgi alanlarım arasında.</p>
+          <div class="about-meta" aria-label="Kişisel bilgiler">
+            <span><small>KONUM</small>Malatya, Türkiye</span>
+            <span><small>ODAK</small>Mobil · Backend · Veri</span>
+          </div>
           <a class="text-link" href="#contact">Benimle iletişime geç <span>↗</span></a>
         </div>
+      </div>
+      <div class="hero-proof reveal" aria-label="Kısa profil özeti">
+        <span><b>04.</b> Sınıf öğrencisi</span>
+        <span><b>06+</b> Seçili proje</span>
+        <span><b>TR</b> Malatya merkezli</span>
       </div>
       <div class="principles">
         <div><span>01</span><strong>Problemi anla</strong><p>Koda başlamadan önce ihtiyacı ve kullanıcı akışını netleştiririm.</p></div>
@@ -140,6 +164,6 @@
       </div>
     </section>
   </main>
-  <footer class="shell"><span>© <span id="year"></span> M. Buğra Esim</span><a href="#top">Yukarı dön ↑</a></footer>
+  <footer class="shell"><span>© <span id="year"></span> Muhammed Buğra Esim</span><a href="#top">Yukarı dön ↑</a></footer>
 </body>
 </html>
