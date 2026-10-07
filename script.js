@@ -46,7 +46,7 @@ window.addEventListener('resize',sizeParticles,{passive:true});
 const siteHeader=document.querySelector('.site-header');
 const progressBar=document.querySelector('.scroll-progress span');
 const navLinks=[...document.querySelectorAll('.desktop-nav a')];
-const sections=[...document.querySelectorAll('main section[id]')];
+const sections=[...document.querySelectorAll('main section[id], #academic-record')];
 function updatePageChrome(){
   const scrollTop=window.scrollY;
   const maxScroll=document.documentElement.scrollHeight-innerHeight;
