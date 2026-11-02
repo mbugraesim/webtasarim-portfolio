@@ -26,6 +26,10 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="welcome-screen" id="welcome-screen" aria-hidden="true">
+    <div class="welcome-screen__backdrop"><div class="welcome-screen__glow"></div></div>
+    <div class="welcome-screen__logo">MB<i class="mb-comet" aria-hidden="true"></i></div>
+  </div>
   <a class="skip-link" href="#main">İçeriğe geç</a>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <canvas id="particleCanvas" aria-hidden="true"></canvas>
@@ -36,9 +40,9 @@
     <span aria-hidden="true">MOBİL GELİŞTİRME</span><i aria-hidden="true">✦</i><span aria-hidden="true">BACKEND SİSTEMLERİ</span><i aria-hidden="true">✦</i><span aria-hidden="true">VERİ TABANI</span><i aria-hidden="true">✦</i><span aria-hidden="true">ÜRÜN TASARIMI</span><i aria-hidden="true">✦</i>
   </div></div>
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Ana sayfa"><span>MB</span> Muhammed Buğra Esim</a>
+    <a class="brand" href="#top" aria-label="Ana sayfa"><span>MB<i class="mb-comet" aria-hidden="true"></i></span><strong class="brand-name">Muhammed Buğra Esim<small>Yazılım Geliştirici</small></strong></a>
     <nav class="desktop-nav" aria-label="Ana menü">
-      <a href="#about" data-short="HK" data-label="Hakkımda">Hakkımda</a><a href="#journey" data-short="DN" data-label="Deneyim">Deneyim</a><a href="#academic-record" data-short="AK" data-label="Akademik">Akademik</a><a href="#projects" data-short="PR" data-label="Projeler">Projeler</a><a href="#skills" data-short="YT" data-label="Yetenekler">Yetenekler</a><a href="#contact" data-short="İL" data-label="İletişim">İletişim</a>
+      <a href="#about" data-short="HK" data-label="Hakkımda"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg><span>Hakkımda</span></a><a href="#journey" data-short="DN" data-label="Deneyim"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 12a22 22 0 0 0 18 0M12 12v3"/></svg><span>Deneyim</span></a><a href="#academic-record" data-short="AK" data-label="Akademik"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5-10-5ZM6 11v6c4 3 8 3 12 0v-6M22 9v7"/></svg><span>Akademik</span></a><a href="#projects" data-short="PR" data-label="Projeler"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Projeler</span></a><a href="#skills" data-short="YT" data-label="Yetenekler"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6M14 3l-4 18"/></svg><span>Yetenekler</span></a><a href="#contact" data-short="İL" data-label="İletişim"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>İletişim</span></a>
     </nav>
     <a class="header-cta" href="mailto:bugraesim@hotmail.com">Birlikte çalışalım <span>↗</span></a>
     <button class="menu-button" type="button" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span></button>
@@ -259,27 +263,27 @@
       <div class="project-list">
         <article class="project featured reveal">
           <div class="project-art art-map"><div class="map-line"></div><span class="pin p1"></span><span class="pin p2"></span><span class="pin p3"></span><div class="phone-mock"><div class="phone-top"></div><b>Yakındaki İlanlar</b><i></i><i></i><i></i></div></div>
-          <div class="project-info"><div class="project-number">01 / MOBİL UYGULAMA</div><h3>İşHarita</h3><p>Konum bazlı iş ilanlarını harita üzerinde keşfetmeyi ve hızlı başvuru akışını bir araya getiren mobil platform.</p><div class="tech"><span>React Native</span><span>Expo</span><span>Firebase</span></div><a href="mailto:bugraesim@hotmail.com?subject=İşHarita%20demo" class="circle-link" aria-label="İşHarita demosu iste">↗</a></div>
+          <div class="project-info"><div class="project-number">01 / MOBİL UYGULAMA</div><h3>İşHarita</h3><p>Konum bazlı iş ilanlarını harita üzerinde keşfetmeyi ve hızlı başvuru akışını bir araya getiren mobil platform.</p><div class="tech"><span>React Native</span><span>Expo</span><span>Firebase</span></div><a href="https://github.com/mbugraesim" target="_blank" rel="noopener noreferrer" class="circle-link" aria-label="İşHarita GitHub profili">↗</a></div>
         </article>
         <article class="project reverse reveal">
           <div class="project-art art-ateus"><div class="radar"><span></span></div><div class="metric"><small>RİSK SEVİYESİ</small><b>72</b><i>Yüksek öncelik</i></div></div>
-          <div class="project-info"><div class="project-number">02 / KARAR DESTEK</div><h3>ATEUS</h3><p>Farklı sinyalleri analiz ederek risk skorlarına dönüştüren, harita tabanlı tehdit erken uyarı ve karar destek konsepti.</p><div class="tech"><span>Analitik</span><span>Harita</span><span>Risk Modeli</span></div><a href="mailto:bugraesim@hotmail.com?subject=ATEUS%20hakkında" class="circle-link" aria-label="ATEUS hakkında iletişim">↗</a></div>
+          <div class="project-info"><div class="project-number">02 / KARAR DESTEK</div><h3>ATEUS</h3><p>Farklı sinyalleri analiz ederek risk skorlarına dönüştüren, harita tabanlı tehdit erken uyarı ve karar destek konsepti.</p><div class="tech"><span>Analitik</span><span>Harita</span><span>Risk Modeli</span></div><a href="https://github.com/mbugraesim" target="_blank" rel="noopener noreferrer" class="circle-link" aria-label="ATEUS GitHub profili">↗</a></div>
         </article>
         <article class="project reveal">
           <div class="project-art art-lexi"><div class="flashcard back">practice</div><div class="flashcard front"><small>GÜNÜN KELİMESİ</small><b>curiosity</b><span>merak</span></div></div>
-          <div class="project-info"><div class="project-number">03 / MOBİL UYGULAMA</div><h3>LexiKart</h3><p>3D kart çevirme animasyonu, rastgele çalışma, kelime yönetimi ve TXT içe aktarma özellikleriyle kişisel kelime öğrenme uygulaması.</p><div class="tech"><span>React Native</span><span>Expo</span><span>TypeScript</span><span>AsyncStorage</span></div><a href="https://github.com/mbugraesim/lexicart-mobile" target="_blank" rel="noopener" class="circle-link" aria-label="LexiKart GitHub deposu">↗</a></div>
+          <div class="project-info"><div class="project-number">03 / MOBİL UYGULAMA</div><h3>LexiKart</h3><p>3D kart çevirme animasyonu, rastgele çalışma, kelime yönetimi ve TXT içe aktarma özellikleriyle kişisel kelime öğrenme uygulaması.</p><div class="tech"><span>React Native</span><span>Expo</span><span>TypeScript</span><span>AsyncStorage</span></div><a href="https://github.com/mbugraesim/lexicart-mobile" target="_blank" rel="noopener noreferrer" class="circle-link" aria-label="LexiKart GitHub deposu">↗</a></div>
         </article>
         <article class="project reverse reveal">
           <div class="project-art art-data"><div class="db-stack"><i></i><i></i><i></i></div><div class="code-lines"><span></span><span></span><span></span><span></span></div></div>
-          <div class="project-info"><div class="project-number">04 / VERİ TABANI</div><h3>Yurt Yönetim Sistemi</h3><p>Yurt, öğrenci ve operasyon süreçlerini ilişkisel veri modeliyle yöneten SQL Server tabanlı otomasyon çalışması.</p><div class="tech"><span>SQL Server</span><span>Stored Procedure</span><span>REST API</span></div><a href="mailto:bugraesim@hotmail.com?subject=Yurt%20Yönetim%20Sistemi" class="circle-link" aria-label="Yurt Yönetim Sistemi hakkında iletişim">↗</a></div>
+          <div class="project-info"><div class="project-number">04 / VERİ TABANI</div><h3>Yurt Yönetim Sistemi</h3><p>Yurt, öğrenci ve operasyon süreçlerini ilişkisel veri modeliyle yöneten SQL Server tabanlı otomasyon çalışması.</p><div class="tech"><span>SQL Server</span><span>Stored Procedure</span><span>REST API</span></div><a href="https://github.com/mbugraesim" target="_blank" rel="noopener noreferrer" class="circle-link" aria-label="Yurt Yönetim Sistemi GitHub profili">↗</a></div>
         </article>
         <article class="project reveal">
           <div class="project-art art-neighborhood"><div class="network-core">AI</div><div class="network-node n1">İHTİYAÇ</div><div class="network-node n2">GÖNÜLLÜ</div><div class="network-node n3">KONUM</div><i class="network-line l1"></i><i class="network-line l2"></i><i class="network-line l3"></i></div>
-          <div class="project-info"><div class="project-number">05 / AKILLI TOPLULUK</div><h3>Akıllı Mahalle Ağı</h3><p>Mahalle içindeki ihtiyaç ve yardım taleplerini konum, öncelik ve uygunluk bilgileriyle eşleştirerek dayanışmayı hızlandıran topluluk platformu.</p><div class="tech"><span>Firebase</span><span>Otomasyon</span><span>Konum</span><span>AI Destekli</span></div><a href="mailto:bugraesim@hotmail.com?subject=Akıllı%20Mahalle%20Ağı" class="circle-link" aria-label="Akıllı Mahalle Ağı hakkında iletişim">↗</a></div>
+          <div class="project-info"><div class="project-number">05 / AKILLI TOPLULUK</div><h3>Akıllı Mahalle Ağı</h3><p>Mahalle içindeki ihtiyaç ve yardım taleplerini konum, öncelik ve uygunluk bilgileriyle eşleştirerek dayanışmayı hızlandıran topluluk platformu.</p><div class="tech"><span>Firebase</span><span>Otomasyon</span><span>Konum</span><span>AI Destekli</span></div><a href="https://github.com/mbugraesim" target="_blank" rel="noopener noreferrer" class="circle-link" aria-label="Akıllı Mahalle Ağı GitHub profili">↗</a></div>
         </article>
         <article class="project reverse reveal project-ssh">
           <div class="project-art art-ssh"><div class="terminal-panel"><div class="terminal-head"><span></span><span></span><span></span><b>SSH / OPERATIONS</b></div><div class="terminal-row"><i class="online"></i><span>server-prod-01</span><b>ONLINE</b></div><div class="terminal-row"><i class="warning"></i><span>api-node-02</span><b>WARNING</b></div><div class="terminal-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="incident-badge"><small>AKTİF ARIZA</small><strong>03</strong><span>Canlı izleme</span></div></div>
-          <div class="project-info"><div class="project-number">06 / SİSTEM YÖNETİMİ</div><h3>SSH Arıza Yönetim Paneli</h3><p>SSH üzerinden yönetilen sistemlerin durumunu tek merkezde görünür kılan; arıza takibi, önceliklendirme ve operasyon akışını kolaylaştıran yönetim paneli.</p><div class="tech"><span>SSH</span><span>Sunucu İzleme</span><span>Arıza Yönetimi</span><span>Dashboard</span></div><a href="mailto:bugraesim@hotmail.com?subject=SSH%20Arıza%20Yönetim%20Paneli" class="circle-link" aria-label="SSH Arıza Yönetim Paneli hakkında iletişim">↗</a></div>
+          <div class="project-info"><div class="project-number">06 / SİSTEM YÖNETİMİ</div><h3>SSH Arıza Yönetim Paneli</h3><p>SSH üzerinden yönetilen sistemlerin durumunu tek merkezde görünür kılan; arıza takibi, önceliklendirme ve operasyon akışını kolaylaştıran yönetim paneli.</p><div class="tech"><span>SSH</span><span>Sunucu İzleme</span><span>Arıza Yönetimi</span><span>Dashboard</span></div><a href="https://github.com/mbugraesim" target="_blank" rel="noopener noreferrer" class="circle-link" aria-label="SSH Arıza Yönetim Paneli GitHub profili">↗</a></div>
         </article>
       </div>
     </section>
@@ -301,8 +305,18 @@
       <div class="shell contact-inner">
         <div class="section-kicker light"><span>05</span> İletişim</div>
         <p>Bir fikrin mi var?</p><h2>Birlikte<br><em>geliştirelim.</em></h2>
-        <a class="email-link" href="mailto:bugraesim@hotmail.com">bugraesim@hotmail.com <span>↗</span></a>
-        <div class="contact-bottom"><span>Staj, proje ve iş birliği görüşmelerine açığım.</span><div><a href="https://github.com/mbugraesim" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/codingwithesim3866" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
+        <div class="contact-profiles" aria-label="Sosyal medya hesaplarım">
+          <a class="contact-profile" href="https://github.com/mbugraesim" target="_blank" rel="noopener noreferrer">
+            <span class="contact-profile__account"><strong>GitHub</strong><small>@mbugraesim</small></span>
+            <span class="contact-profile__action">GitHub'a git <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="contact-profile" href="https://www.linkedin.com/in/codingwithesim3866" target="_blank" rel="noopener noreferrer">
+            <span class="contact-profile__account"><strong>LinkedIn</strong><small>codingwithesim3866</small></span>
+            <span class="contact-profile__action">LinkedIn'e git <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+        <a class="email-link" href="mailto:bugraesim@hotmail.com"><span class="email-link__address">bugraesim@hotmail.com</span><span class="contact-profile__action">E-posta gönder <span aria-hidden="true">↗</span></span></a>
+        <div class="contact-bottom"><span>Staj, proje ve iş birliği görüşmelerine açığım.</span></div>
       </div>
     </section>
   </main>
