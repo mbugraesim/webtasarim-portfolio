@@ -144,7 +144,7 @@ window.addEventListener('resize',sizeParticles,{passive:true});
 const siteHeader=document.querySelector('.site-header');
 const progressBar=document.querySelector('.scroll-progress span');
 const navLinks=[...document.querySelectorAll('.desktop-nav a')];
-const sections=[...document.querySelectorAll('main section[id], #academic-record')];
+const sections=navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
 let headerAnimations=[];
 let headerEffects=null;
 let chromeInitialized=false;
@@ -243,8 +243,14 @@ function updatePageChrome(){
   const isScrolled=siteHeader.classList.contains('is-scrolled');
   setHeaderLayout(scrollTop>(isScrolled?24:80));
   let current='';
-  sections.forEach(section=>{if(scrollTop>=section.offsetTop-180)current=section.id});
-  navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')===`#${current}`));
+  // Viewport coordinates also work for the academic block nested inside journey.
+  sections.forEach(section=>{if(section.getBoundingClientRect().top<=180)current=section.id});
+  navLinks.forEach(link=>{
+    const active=link.getAttribute('href')===`#${current}`;
+    link.classList.toggle('active',active);
+    if(active)link.setAttribute('aria-current','location');
+    else link.removeAttribute('aria-current');
+  });
 }
 updatePageChrome();
 playWelcomeIntro();

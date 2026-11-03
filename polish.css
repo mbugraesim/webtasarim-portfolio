@@ -922,9 +922,11 @@ body {
   .site-header.is-scrolled .desktop-nav a::after {
     content: none;
   }
-  .site-header.is-scrolled .desktop-nav a:hover {
+  .site-header.is-scrolled .desktop-nav a:hover,
+  .site-header.is-scrolled .desktop-nav a:focus-visible {
     background: #eef2f9;
     color: #315bea;
+    opacity: 1;
   }
   .site-header.is-scrolled .desktop-nav a.active {
     background: #e9efff;
@@ -976,11 +978,20 @@ body {
 .top-marquee.visible { transform: none; }
 .top-marquee .marquee-track {
   min-width: max-content;
-  padding: 11px 0;
-  gap: 30px;
+  padding: 0;
+  gap: 0;
   font-size: 12px;
   letter-spacing: .12em;
   animation-duration: 28s;
+}
+.top-marquee .marquee-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100vw;
+  gap: 30px;
+  padding: 11px 15px;
 }
 .top-marquee .marquee-track i {
   color: #61ddd2;
@@ -1041,7 +1052,8 @@ body {
 }
 
 @media (max-width: 800px) {
-  .top-marquee .marquee-track { padding: 9px 0; gap: 22px; font-size: 11px; }
+  .top-marquee .marquee-track { font-size: 11px; }
+  .top-marquee .marquee-group { padding: 9px 11px; gap: 22px; }
 }
 
 /* Decorative interactions follow the pointer without moving the layout. */
@@ -1082,28 +1094,110 @@ body {
     border-color: #6ce0d677;
     box-shadow: 0 6px 18px #0002;
   }
-  .hero-visual .preview-chart i, .terminal-chart i { transform-origin: bottom; }
-  .hero-visual:hover .preview-chart i,
-  .project:hover .terminal-chart i {
-    animation: live-chart-bar 1.6s ease-in-out infinite alternate;
-  }
-  .hero-visual .preview-chart i:nth-child(2n), .terminal-chart i:nth-child(2n) { animation-delay: -.5s; }
-  .hero-visual .preview-chart i:nth-child(3n), .terminal-chart i:nth-child(3n) { animation-delay: -1.1s; }
-  .hero-visual:hover .floating-status > i { animation: live-status-glow 1.8s ease-in-out infinite; }
   .project-art > :not(.interaction-glow) { transition: translate .45s ease-out, rotate .45s ease-out, filter .35s ease; }
   .project:hover .project-art > :not(.interaction-glow) { translate: var(--drift-x, 0px) var(--drift-y, 0px); }
-  .project:hover .pin { animation: live-map-pin 1.5s ease-in-out infinite; }
-  .project:hover .p2 { animation-delay: .25s; }
-  .project:hover .p3 { animation-delay: .5s; }
   .project:hover .flashcard.front { rotate: -3deg; }
   .project:hover .flashcard.back { rotate: 3deg; }
   .db-stack i { transition: translate .4s ease; }
   .project:hover .db-stack i:first-child { translate: 0 -8px; }
   .project:hover .db-stack i:last-child { translate: 0 8px; }
-  .project:hover .network-core { animation: live-status-glow 1.8s ease-in-out infinite; }
   .project:hover .network-node { filter: brightness(1.2); }
   .course-card:hover { box-shadow: 0 12px 30px #0002; }
   .profile-card:hover { border-color: #8fa8e4; box-shadow: 0 14px 36px #315bea12; }
+}
+/* The decorative dashboard plays automatically on desktop and touch screens. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-visual .preview-chart i, .project .terminal-chart i {
+    transform-origin: bottom;
+    animation: live-chart-bar 1.6s ease-in-out infinite alternate;
+  }
+  .hero-visual .preview-chart i:nth-child(2n) { animation-delay: -.5s; animation-duration: 2.1s; }
+  .hero-visual .preview-chart i:nth-child(3n) { animation-delay: -1.1s; animation-duration: 1.8s; }
+  .project .terminal-chart i:nth-child(2n) { animation-delay: -.5s; animation-duration: 2.1s; }
+  .project .terminal-chart i:nth-child(3n) { animation-delay: -1.1s; }
+  .project .pin { animation: live-map-pin 2.4s ease-in-out infinite; }
+  .project .p2 { animation-delay: -.8s; }
+  .project .p3 { animation-delay: -1.6s; }
+  .project .phone-mock, .project .metric, .project .incident-badge {
+    animation: project-float 5s ease-in-out infinite;
+  }
+  .project .phone-mock i, .project .code-lines span {
+    animation: project-content-pulse 3s ease-in-out infinite;
+  }
+  .project .phone-mock i:nth-of-type(2), .project .code-lines span:nth-child(2) { animation-delay: -.6s; }
+  .project .phone-mock i:nth-of-type(3), .project .code-lines span:nth-child(3) { animation-delay: -1.2s; }
+  .project .radar { animation: radarPulse 3.5s ease-in-out infinite, project-radar-sweep 12s linear infinite; }
+  .project .flashcard { animation: project-card-sway 6s ease-in-out infinite; }
+  .project .flashcard.back { animation-direction: reverse; animation-delay: -1.5s; }
+  .project .db-stack i { animation: project-float 3.6s ease-in-out infinite; }
+  .project .db-stack i:nth-child(2) { animation-delay: -.6s; }
+  .project .db-stack i:nth-child(3) { animation-delay: -1.2s; }
+  .project .network-core { animation: project-ai-pulse 3s ease-in-out infinite; }
+  .project .network-node { animation: project-node-pulse 3s ease-in-out infinite; }
+  .project .n2 { animation-delay: -1s; }
+  .project .n3 { animation-delay: -2s; }
+  .project .network-line::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    width: 20%;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, transparent, #80fff0);
+    box-shadow: 0 0 10px #6ce0d6;
+    animation: project-data-flow 2.8s linear infinite;
+  }
+  .project .l2::after { animation-delay: -.9s; }
+  .project .l3::after { animation-delay: -1.8s; }
+  .project .terminal-row .online { animation: live-status-glow 2s ease-in-out infinite; }
+  .project .terminal-row .warning { animation: project-content-pulse 2s ease-in-out infinite; }
+  .hero-visual .floating-status > i { animation: live-status-glow 1.8s ease-in-out infinite; }
+  .hero-visual .floating-status { animation: dashboard-float 5s ease-in-out infinite; }
+  .hero-visual .floating-code { animation: dashboard-float 6s ease-in-out -2s infinite reverse; }
+  .hero-visual .floating-code code::after {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 1em;
+    margin-left: 4px;
+    background: currentColor;
+    vertical-align: -.15em;
+    animation: dashboard-cursor 1.2s steps(1) infinite;
+  }
+}
+@keyframes project-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
+}
+@keyframes project-content-pulse {
+  0%, 100% { opacity: .65; }
+  50% { opacity: 1; }
+}
+@keyframes project-radar-sweep { to { rotate: 360deg; } }
+@keyframes project-card-sway {
+  0%, 100% { rotate: -2deg; translate: 0 0; }
+  50% { rotate: 2deg; translate: 0 -8px; }
+}
+@keyframes project-ai-pulse {
+  0%, 100% { scale: 1; box-shadow: 0 0 45px #41dcd24a; }
+  50% { scale: 1.05; box-shadow: 0 0 85px #41dcd280; }
+}
+@keyframes project-node-pulse {
+  0%, 100% { border-color: #66736e; box-shadow: 0 0 0 transparent; }
+  50% { border-color: #6ce0d6; box-shadow: 0 0 24px #6ce0d633; }
+}
+@keyframes project-data-flow {
+  from { left: 0; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  to { left: 80%; opacity: 0; }
+}
+@keyframes dashboard-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes dashboard-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 @keyframes live-chart-bar {
   from { transform: scaleY(.76); filter: brightness(.95); }
